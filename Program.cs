@@ -1,8 +1,11 @@
-﻿int hemligtNum = 47;
-int guessesLeft = 3;
+﻿int guessesLeft = 3;
 int guesses = 0;
 
+Random rng = new Random();
+int hemligtNum = rng.Next(1, 10);
+
 bool gameRunning = true;
+Console.WriteLine("Gissa Talet 1-10");
 while (gameRunning)
 {
     try
@@ -18,6 +21,7 @@ while (gameRunning)
         {
             guesses++;
             int leftGuesses = guessesLeft - guesses;
+            Console.WriteLine((hemligtNum < num) ? "Gissa Lägre" : "Gissa Högre");
             Console.WriteLine((guesses == guessesLeft) ? "Fel! Du förlorade!" : $"Fel! Gissa igen. {leftGuesses} försök kvar.");
             if (leftGuesses == 0)
             {
